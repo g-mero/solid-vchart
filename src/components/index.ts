@@ -3,9 +3,11 @@ import {
   registerBarChart,
   registerCartesianCrossHair,
   registerDomTooltipHandler,
+  registerGaugeChart,
   registerHistogramChart,
   registerLineChart,
   registerPieChart,
+  registerRadarChart,
   registerRoseChart,
   registerScatterChart,
   registerTooltip,
@@ -53,6 +55,16 @@ const ScatterChart = /* #__PURE__ */ createTypedChart('scatter', [
   ...toolTipAndCrossHair,
 ]);
 
+const RadarChart = /* #__PURE__ */ createTypedChart('radar', [
+  registerRadarChart,
+  ...toolTipAndCrossHair,
+]);
+
+const GaugeChart = /* #__PURE__ */ createTypedChart('gauge', [
+  registerGaugeChart,
+  ...toolTipAndCrossHair,
+]);
+
 export {
   LineChart,
   BarChart,
@@ -61,4 +73,6 @@ export {
   RoseChart,
   HistogramChart,
   ScatterChart,
+  RadarChart,
+  GaugeChart,
 };

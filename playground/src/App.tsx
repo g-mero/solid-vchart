@@ -6,9 +6,11 @@ import { createWatch } from 'solid-tiny-utils';
 import type { VChartType } from '~/types';
 import { PlayAreaChart } from './charts/PlayAreaChart';
 import { PlayBarChart } from './charts/PlayBarChart';
+import { PlayGaugeChart } from './charts/PlayGuageChart';
 import { PlayHistogramChart } from './charts/PlayHistogramChart';
 import { PlayLineChart } from './charts/PlayLineChart';
 import { PlayPieChart } from './charts/PlayPieChart';
+import { PlayRadarChart } from './charts/PlayRadarChart';
 import { PlayRoseChart } from './charts/PlayRoseChart';
 import { PlayScatterChart } from './charts/PlayScatterChart';
 
@@ -34,6 +36,8 @@ export function App() {
             { label: 'Rose Chart', value: 'rose' },
             { label: 'Histogram Chart', value: 'histogram' },
             { label: 'Scatter Chart', value: 'scatter' },
+            { label: 'Radar Chart', value: 'radar' },
+            { label: 'Gauge Chart', value: 'gauge' },
           ]}
           size="small"
           style={{
@@ -78,6 +82,12 @@ export function App() {
         </Match>
         <Match when={type() === 'scatter'}>
           <PlayScatterChart shouldChangeDataSignal={changeDataSignal()} />
+        </Match>
+        <Match when={type() === 'radar'}>
+          <PlayRadarChart shouldChangeDataSignal={changeDataSignal()} />
+        </Match>
+        <Match when={type() === 'gauge'}>
+          <PlayGaugeChart shouldChangeDataSignal={changeDataSignal()} />
         </Match>
       </Switch>
     </div>
